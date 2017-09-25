@@ -1,35 +1,33 @@
-
 function Game(string){
-  this.new = string       // || "000000000000" Math.random()  - generate random string
+  this.new = string || _.shuffle([0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0]).join("")
   this.array = this.new.split("").map(Number);
 }
 
-Game.prototype.horizontal_arrays = function(){
-  array = this.array.slice();
-  var results = [];
-  while (array.length) {
-    results.push(array.splice(0, 4));
-  }
-  return results;
-}
-
-Game.prototype.vertical_arrays = function(){
-     return _.zip.apply(_, this.horizontal_arrays())
-}
-
 Game.prototype.moveDown = function(){
-  this.vertical_arrays().each
+  this.collapseDown()
+  this.addDown()
+  this.addNumber()
+  return this.array
 }
 
 Game.prototype.moveUp= function(){
-
+  this.collapseUp()
+  this.addUp()
+  this.addNumber()
+  return this.array
 }
 
 Game.prototype.moveRigth = function(){
-
+  this.collapseRight()
+  this.addRight()
+  this.addNumber()
+  return this.array
 }
 
 Game.prototype.moveLeft = function(){
-
+  this.collapseLeft()
+  this.addLeft()
+  this.addNumber()
+  return this.array
 }
-game = new Game('0000202000000000')
+
