@@ -10,7 +10,7 @@
   <!--
     application.css is where you put your styles
   -->
-  <!-- <link rel="stylesheet" href="css/application.css"> -->
+  <link rel="stylesheet" href="css/style.css">
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="js/mousetrap.js"></script>
@@ -24,6 +24,45 @@
   <title>256!</title>
 </head>
 <body>
+
+<h2>2048 <small>clone</small> </h2>
+
+<table>
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+</table>
+<p>Press enter to start new game</p>
+<p>Use key: up/left/right/down to play!</p>
+
+<script>
+    Mousetrap.bind('enter', function() { console.log('new'); });
+    Mousetrap.bind('up', function() { console.log('8'); });
+    Mousetrap.bind('left', function() { console.log('4'); });
+    Mousetrap.bind('right', function() { console.log('6'); });
+    Mousetrap.bind('down', function() { console.log('2'); });
+  </script>
 
 </body>
 </html>
