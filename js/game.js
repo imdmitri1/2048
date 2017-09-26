@@ -46,6 +46,9 @@ Game.prototype.vertical_arrays = function(){
      return _.zip.apply(_, this.horizontal_arrays())
 }
 
+// ***************
+
+// fix this method for not adding number if
 Game.prototype.addNumber = function(){
   var n = false;
   do {
@@ -66,6 +69,10 @@ Game.prototype.updateBoard = function(){
       $(`#c${i+1}`).text("")   //css("visibility","hidden")
     }
   }
+}
+
+Game.prototype.gameOver = function(){
+//
 }
 
 // ************* collapsing methods: ********************

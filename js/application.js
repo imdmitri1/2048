@@ -10,11 +10,13 @@ $(document).ready(function() {
   });
 
   Mousetrap.bind('up', function() {
+    event.preventDefault();
     game.moveUp();
     game.updateBoard();
   });
 
   Mousetrap.bind('left', function() {
+    event.preventDefault();
     game.moveLeft();
     game.updateBoard();
   });
