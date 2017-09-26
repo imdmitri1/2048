@@ -8,13 +8,17 @@ body {
 }
 
 table {
+  color: #666547;
   margin: 0 auto;
+  /*border-collapse: collapse;*/
+  border: 4px solid dimgrey;
+  border-radius: 10px;
 }
 
-table  {
+table * {
   border: 4px solid dimgrey;
   /*padding: 40px;*/
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 50px;
 }
 
@@ -25,4 +29,8 @@ tr{
 td {
   width: 120px;
     border: 4px solid dimgrey;
+}
+
+.tile0 {
+  background-color: lightgray;
 }

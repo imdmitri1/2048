@@ -1,6 +1,7 @@
 function Game(string){
   this.new = string || _.shuffle([0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0]).join("")
   this.array = this.new.split("").map(Number);
+  this.score = 0;
 }
 
 Game.prototype.moveDown = function(){
@@ -63,12 +64,14 @@ Game.prototype.addNumber = function(){
 }
 
 Game.prototype.updateBoard = function(){
+    $('table *').removeClass();
     for(var i = 0; i < 16; i++){
-    $(`#c${i+1}`).text(game.array[i])
-    if ($(`#c${i+1}`).text() === "0"){
-      $(`#c${i+1}`).text("")   //css("visibility","hidden")
+      $(`#c${i+1}`).text(game.array[i])
+      if ($(`#c${i+1}`).text() === "0"){
+        $(`#c${i+1}`).text("").addClass("tile0")
+      }
     }
-  }
+    $('#score').text(this.score)
 }
 
 Game.prototype.gameOver = function(){
@@ -138,11 +141,13 @@ Game.prototype.collapseDown = function(){
 //************ adding numbers in rows:*****************
 
 Game.prototype.addRight = function(){
+  var that = this;
   var a = this.horizontal_arrays().map(function(line){
     for(var i=line.length - 1; i > -1; i--){
         if (line[i] === line[i - 1]) {
-          sum = line[i] + line[i - 1]
+          var sum = line[i] + line[i - 1]
           line.splice(i, 1, sum)
+          that.score = that.score + sum;
           line.splice(i - 1, 1)
           line.unshift(0)
         }
@@ -154,11 +159,14 @@ Game.prototype.addRight = function(){
 }
 
 Game.prototype.addLeft = function(){
+  var that = this;
   var a = this.horizontal_arrays().map(function(line){
     for(var i=0; i < line.length; i++){
         if (line[i] === line[i + 1]) {
-          sum = line[i] + line[i + 1]
+          var sum = line[i] + line[i + 1]
           line.splice(i, 1, sum)
+          that.score = that.score + sum;
+          this.score += sum;
           line.splice(i + 1, 1)
           line.push(0)
         }
@@ -170,11 +178,14 @@ Game.prototype.addLeft = function(){
 }
 
 Game.prototype.addUp= function(){
+  var that = this;
   var a = this.vertical_arrays().map(function(line){
     for(var i=0; i < line.length; i++){
         if (line[i] === line[i + 1]) {
-          sum = line[i] + line[i + 1]
+          var sum = line[i] + line[i + 1]
+          that.score = that.score + sum;
           line.splice(i, 1, sum)
+          this.score += sum;
           line.splice(i + 1, 1)
           line.push(0)
         }
@@ -187,11 +198,14 @@ Game.prototype.addUp= function(){
 }
 
 Game.prototype.addDown = function(){
+  var that = this;
   var a = this.vertical_arrays().map(function(line){
     for(var i=line.length - 1; i > -1; i--){
         if (line[i] === line[i - 1]) {
-          sum = line[i] + line[i - 1]
+          var sum = line[i] + line[i - 1]
           line.splice(i, 1, sum)
+          that.score = that.score + sum;
+          this.score += sum;
           line.splice(i - 1, 1)
           line.unshift(0)
         }
