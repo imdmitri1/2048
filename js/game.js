@@ -68,8 +68,31 @@ Game.prototype.updateBoard = function(){
     for(var i = 0; i < 16; i++){
       $(`#c${i+1}`).text(game.array[i])
       if ($(`#c${i+1}`).text() === "0"){
-        $(`#c${i+1}`).text("").addClass("tile0")
-      }
+        $(`#c${i+1}`).text("").addClass("tile0") }
+      if ($(`#c${i+1}`).text() === "2"){
+        $(`#c${i+1}`).addClass("tile2") }
+      // if ($(`#c${i+1}`).text() === "1"){
+      //   $(`#c${i+1}`).text("2").addClass("tile1") }
+      if ($(`#c${i+1}`).text() === "4"){
+        $(`#c${i+1}`).addClass("tile4") }
+      if ($(`#c${i+1}`).text() === "8"){
+        $(`#c${i+1}`).addClass("tile8") }
+      if ($(`#c${i+1}`).text() === "16"){
+        $(`#c${i+1}`).addClass("tile16") }
+      if ($(`#c${i+1}`).text() === "32"){
+        $(`#c${i+1}`).addClass("tile32") }
+      if ($(`#c${i+1}`).text() === "64"){
+        $(`#c${i+1}`).addClass("tile64") }
+      if ($(`#c${i+1}`).text() === "128"){
+        $(`#c${i+1}`).addClass("tile128") }
+      if ($(`#c${i+1}`).text() === "256"){
+        $(`#c${i+1}`).addClass("tile256") }
+      if ($(`#c${i+1}`).text() === "512"){
+        $(`#c${i+1}`).addClass("tile512") }
+      if ($(`#c${i+1}`).text() === "1024"){
+        $(`#c${i+1}`).addClass("tile1024") }
+      if ($(`#c${i+1}`).text() === "2048"){
+        $(`#c${i+1}`).addClass("tile2048") }
     }
     $('#score').text(this.score)
 }
